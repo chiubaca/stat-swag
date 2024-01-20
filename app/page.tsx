@@ -18,7 +18,7 @@ export default async function Index() {
     if (new Date(session.expires) < new Date()) {
 
 
-      return <SessionExpiredLogin/>
+      return <SessionExpiredLogin />
 
     }
 
@@ -40,8 +40,6 @@ export default async function Index() {
     }
 
 
-
-
   }
 
 
@@ -51,6 +49,7 @@ export default async function Index() {
       <h1 className="text-3xl font-bold">Welcome to Strava cards</h1>
 
       <code>{JSON.stringify(athleteInfo)}</code>
+
 
 
       {/* <code>{JSON.stringify(athleteActivities)}</code> */}
