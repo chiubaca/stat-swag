@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
   import { signIn, signOut } from "@auth/sveltekit/client"
+  import "../app.css"
 </script>
 
 <div>
