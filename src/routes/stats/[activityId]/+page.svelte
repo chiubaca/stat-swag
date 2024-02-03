@@ -48,26 +48,35 @@
   })
 </script>
 
-Sure, I can help you with that. Here’s how you can modify your Svelte code to
-animate the drawing of the D3 SVG path:
-
 <main>
-  <h1>{data.activity?.name}</h1>
+  <div
+    class="rounded-lg p-5 border-solid border-black border-2 grid grid-cols-3"
+  >
+    <h1 class=" bg-fuchsia-200 rounded-lg p-5 m-1 col-span-1">
+      {data.activity?.name}
+    </h1>
 
-  <div>{data.activity?.distance}</div>
+    <div class="col-span-1 bg-blue-200 rounded-lg p-5 m-1">
+      {data.activity?.distance}
+    </div>
 
-  {new Date(data.activity?.start_date)}
+    <div class="col-span-1 bg-green-200 m-1 rounded-lg p-5">
+      {new Date(data.activity?.start_date)}
+    </div>
 
-  <svg {width} {height}>
-    <!-- Append the data as a path element to the SVG -->
-    <path
-      bind:this={pathElement}
-      d={path}
-      fill="white"
-      fill-opacity="0.1"
-      stroke="black"
-    />
-  </svg>
+    <div class="col-span-3 bg-neutral-200 m-1 rounded-lg p-5">
+      <svg {width} {height}>
+        <!-- Append the data as a path element to the SVG -->
+        <path
+          bind:this={pathElement}
+          d={path}
+          fill="white"
+          fill-opacity="0.1"
+          stroke="black"
+        />
+      </svg>
+    </div>
+  </div>
 
   <a
     href={`https://www.strava.com/activities/${data.activity?.id}`}
@@ -77,3 +86,6 @@ animate the drawing of the D3 SVG path:
     See on strava</a
   >
 </main>
+
+<style>
+</style>
