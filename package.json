@@ -37,6 +37,8 @@
     "@turf/bbox": "^6.5.0",
     "@turf/turf": "^6.5.0",
     "d3": "^7.8.5",
+    "downloadjs": "^1.4.7",
+    "html-to-image": "^1.11.11",
     "strava-v3": "^2.2.0"
   },
   "type": "module"

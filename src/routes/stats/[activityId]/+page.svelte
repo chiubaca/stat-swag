@@ -4,6 +4,9 @@
   import polyline from "@mapbox/polyline"
   import { geoMercator, select, easeLinear, geoPath } from "d3"
   import { bbox, center } from "@turf/turf"
+  import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image"
+
+  import download from "downloadjs"
 
   export let data: PageData
 
@@ -46,10 +49,19 @@
       .ease(easeLinear) // Use a linear easing function
       .attr("stroke-dashoffset", 0) // Set the stroke-dashoffset to 0
   })
+
+  const downloadImage = async () => {
+    console.log("download!")
+
+    toPng(document.getElementById("stats-card")).then(function (dataUrl) {
+      download(dataUrl, "stats.png")
+    })
+  }
 </script>
 
 <main>
   <div
+    id="stats-card"
     class="rounded-lg p-5 border-solid border-black border-2 grid grid-cols-3"
   >
     <h1 class=" bg-fuchsia-200 rounded-lg p-5 m-1 col-span-1">
@@ -77,6 +89,11 @@
       </svg>
     </div>
   </div>
+
+  <button
+    on:click={downloadImage}
+    class="bg-blue-400 rounded-lg p-2 m-2 hover:blue-500">Download card</button
+  >
 
   <a
     href={`https://www.strava.com/activities/${data.activity?.id}`}
